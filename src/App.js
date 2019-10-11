@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+/** @jsx jsx */ import { jsx } from '@emotion/core';
+import * as styles from './style/App';
 
-function App() {
+const App = () => {
+  const [activeLight, setActiveLight] = useState('');
+
+  useEffect(() => {
+    console.log('inside use effect');
+    setInterval(() => {
+      console.log('inside set interval');
+      setTimeout(() => {
+        console.log('inside set timeout');
+        setActiveLight('red');
+      }, 1000);
+      setTimeout(() => {
+        setActiveLight('yellow');
+      }, 6000);
+      setTimeout(() => {
+        setActiveLight('green');
+      }, 9000);
+    }, 14000);
+
+    return () => {
+      clearTimeout();
+      clearInterval();
+    };
+  }, []);
+
+  console.log(activeLight);
+  // console.log(heading);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 css={styles.heading}>Traffic lights</h1>
+      <div style={{ display: 'flex' }}>
+        <span
+          css={styles.lights}
+          className={activeLight === 'red' ? 'red' : ''}
+        ></span>
+        <span
+          css={styles.lights}
+          className={activeLight === 'yellow' ? 'yellow' : ''}
+        ></span>
+        <span
+          css={styles.lights}
+          className={activeLight === 'green' ? 'green' : ''}
+        ></span>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
