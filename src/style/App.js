@@ -2,20 +2,26 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 
-export const wrapper = css`
+export const container = css`
   margin: 0 auto;
   display: grid;
 `;
 
 export const heading = css`
   font-size: 20px;
-  color: black;
+  color: brown;
+  margin: 20px auto;
+  box-shadow: 0 3px 6px 0 brown;
 `;
 
-export const lightsWrapper = css`
+export const lightsContainer = css`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 5px;
+  grid-column-gap: 25px;
+  margin: 0 auto;
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
 `;
 
 export const lights = css`
@@ -24,8 +30,8 @@ export const lights = css`
   border-radius: 50%;
   margin: 10px;
   display: block;
-  background-color: black;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: grey;
+  box-shadow: 0 2px 4px white, 0 5px 10px grey;
 
   &.red {
     background-color: red;

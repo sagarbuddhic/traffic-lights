@@ -30,9 +30,9 @@ const App = () => {
   }, [runTrafficLights]);
 
   return (
-    <div css={styles.wrapper}>
-      <h1 css={styles.heading}>Traffic lights</h1>
-      <div css={styles.lightsWrapper}>
+    <div css={styles.container}>
+      <h1 css={styles.heading}>TRAFFIC LIGHTS</h1>
+      <div css={styles.lightsContainer}>
         <span
           css={styles.lights}
           className={activeLight === 'red' ? 'red' : ''}
